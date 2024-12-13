@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Metro About</title>
+    <link rel="stylesheet" href="/static/css/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9c0df4d599.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/static/videos/Nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+        <!-- Main Content -->
+        <div class="main-content" style="display:none;">
+    <header>
+        <nav class="navbar">
+            <ul class="logo">
+                <li><a href="/">M e t r o</a></li>
+            </ul>
+            <ul class="option">
+                <li><a href="/" class="underline">Home</a></li>
+                <li><a href="/Service" class="underline">Services</a></li>
+                <li><a href="/Contact" class="underline">Contact</a></li>
+                <li><a href="/About" class="underline">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="TypeAnimation">About Us</h1>
+        </div>
+        <div class="subsub">
+            <div class="left-container">
+                <div class="left">
+                    <img src="/static/images/Lenny.png" alt=""><br><br><br><br>
+                    <h1>Lenny Dany Derek D</h1><br><br>
+                    <p>College Student</p><br>
+                    <p> Full Stack Developer, Python Developer</p>
+                </div>
+                <div class="icons">
+                    <a href="https://www.instagram.com/lenny_dany_3/profilecard/?igsh=NDY2OGc5ZHV1ZXA1"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/LennyDany-03"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.facebook.com/share/E5nD4AwCh9dqzpQQ/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/lenny-dany-derek-d-4411aa326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="right-container"><br><br>
+                <h1>About Me</h1><br><br>
+                <p>Hello! I'm Lenny Dany Derek D, a 17-year-old student currently pursuing a degree in Computer Science and Engineering at SRM University. My passion lies in coding, problem-solving, and exploring new technologies. I aim to become a full-stack developer, and I'm constantly expanding my knowledge in various domains such as Python, JavaScript, C++, and IoT.
+
+                    In addition to my academic pursuits, I enjoy working on tech projects that push boundaries, like my recent Smart City and IoT project for the Hack Horizons Hackathon. I’m fascinated by how technology can improve urban experiences, and I'm currently exploring API integration and web development frameworks like Flask.
+                    
+                    When I’m not coding, I love spending time in the gym and continuously upgrading my tech stack. I'm also passionate about contributing to open-source projects and building a robust portfolio showcasing my coding skills.
+        
+                </p><br><br>
+                <h1>Skills</h1><br>
+                <h3>HTML</h3><br>
+                <div class="blueline">.</div><br>
+                <h3>CSS</h3><br>
+                <div class="yellowline"></div><br>
+                <h3>Python</h3><br>
+                <div class="cyanline"></div><br>
+                <h3>JavaScript</h3><br>
+                <div class="redline"></div><br><br>
+        
+                <div class="innercontainer">
+                    <div class="inside-container">
+                        <h1>Subscribe My Newsletter</h1>
+                    </div><br><br><br>
+            
+            
+                    <div class="input-box">
+                        <label for="email">Email id : </label>
+                        <input type="text" placeholder="Email Address"><br>
+                    </div><br><br>
+                    <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Show loader for 2 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').style.display = 'none';  // Hide loader
+                document.querySelector('.main-content').style.display = 'block';     // Show main content
+            }, 2000);  // 2 seconds
+        };
+    </script>
+</body>
+</html>

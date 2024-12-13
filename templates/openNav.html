@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Metro OpenNav</title>
+    <link rel="stylesheet" href="/static/css/openNav.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/static/videos/Nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <header class="main-content" style="display: none;">
+        <nav class="navbar">
+            <ul class="logo">
+                <li><a href="/">M e t r o</a></li>
+            </ul>
+            <ul class="option">
+                <li><a href="/" class="underline">Home</a></li>
+                <li><a href="/Service" class="underline">Services</a></li>
+                <li><a href="/Contact" class="underline">Contact</a></li>
+                <li><a href="/About" class="underline">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content" style="display: none;">
+        <div class="Box-Map">
+            <div class="row_column">
+                <div id="map" class="container"></div>
+                <div id="info" class="sub_container" style="color: white;">Loading travel and traffic information...</div> 
+            </div>
+            <div class="selector">
+                <div class="From_To">
+                    <label for="">From</label>
+                    <input type="text" placeholder="latitude " id="From_Lat" list="stations-Lat">
+                    <input type="text" placeholder="longitude" id="From_Lon" list="stations-Lon">
+                </div>
+                <div class="From_To">
+                    <label for="">To</label>
+                    <input type="text" placeholder="latitude " id="To_Lat" list="stations-Lat">
+                    <input type="text" placeholder="longitude" id="To_Lon" list="stations-Lon">
+                </div>
+                <div class="button">
+                    <button onclick="button()">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datalist for station suggestions -->
+        <datalist id="stations-Lat">
+            <option value="13.044860170723139">AG-DMS</option>
+            <option value="12.98105677453754">Airport</option>
+            <option value="13.00450023648073">Alandur</option>
+            <option value=13.084815538617336">Anna Nagar East</option>
+            <option value="13.085184192472859">Anna Nagar Tower</option>
+            <option value="13.062398475361345">Arumbakkam</option>
+            <option value="13.035642910847452">Ashok Nagar</option>
+            <option value="13.081312941900148">Central Metro</option>
+            <option value="13.068729849702244">CMBT Metro</option>
+            <option value="13.079474358255103">Egmore</option>
+            <option value="13.016927841270164">Ekkattuthangal</option>
+            <option value="13.069953710857414">Government Estate</option>
+            <option value="13.009647191006835">Guindy</option>
+            <option value="13.08750893900533">High Court</option>
+            <option value="13.151032936434857">Kaladipet</option>
+            <option value="13.077883515234085">Kilpauk</option>
+            <option value="13.073600494758244">Koyambedu</option>
+            <option value="13.064533638391152">LIC</option>
+            <option value="13.014630426214941">Little Mount</option>
+            <option value="13.095270585543462">Mannadi</option>
+            <option value="12.987902257238943">Meenambakkam</option>
+            <option value="13.000149883815077">Nanganallur Road</option>
+            <option value="13.030841036684707">Nandanam</option>
+            <option value=13.078993634835676">Nehru Park</option>
+            <option value="13.134898764970105">New Washermenpet</option>
+            <option value="13.075761999138628">Pachaiyappas College</option>
+            <option value="13.023795685865343">Saidapet</option>
+            <option value="13.07878851675779">Shenoy Nagar</option>
+            <option value="12.995332211657448">St. Thomas Mount</option>
+            <option value="13.037447257793788">Teynampet</option>
+            <option value="13.085565644411925">Thirumangalam</option>
+            <option value="13.172570437006806">Thiruvotriyur</option>
+            <option value="13.159961977817003">Thiruvotriyur Theredi</option>
+            <option value="13.058564715035674">Thousand Lights</option>
+            <option value="13.116796383704358">Thyagaraya College</option>
+            <option value="13.143420734094992">TollGate</option>
+            <option value="13.123978365017594">Tondiarpet</option>
+            <option value="13.05092251808476">Vadapalani</option>
+            <option value="13.10864033353228">Washermenpet</option>
+            <option value="13.179531143365129">Wimco Nagar</option>
+            <option value="13.17934954019924">Wimco Nagar Depot</option>
+        </datalist>
+        <!-- Datalist for station suggestions -->
+        <datalist id="stations-Lon">
+            <option value="80.24793633620914">AG-DMS</option>
+            <option value="80.1639912253529">Airport</option>
+            <option value="80.20141808038747">Alandur</option>
+            <option value="80.21972326845857">Anna Nagar East</option>
+            <option value="80.20875688195304">Anna Nagar Tower</option>
+            <option value="80.21172653962302">Arumbakkam</option>
+            <option value="80.21127447030405">Ashok Nagar</option>
+            <option value="80.27297872456785">Central Metro</option>
+            <option value="80.20394518195273">CMBT Metro</option>
+            <option value="80.26088870168526">Egmore</option>
+            <option value="80.20539391263351">Ekkattuthangal</option>
+            <option value="80.27263370737369">Government Estate</option>
+            <option value="80.21306830922336">Guindy</option>
+            <option value="80.2851712840903">High Court</option>
+            <option value="80.29949799573328">Kaladipet</option>
+            <option value="80.24275532631148">Kilpauk</option>
+            <option value="80.19486699544737">Koyambedu</option>
+            <option value="80.26604889573177">LIC</option>
+            <option value="80.2239642840891">Little Mount</option>
+            <option value="80.28614956689646">Mannadi</option>
+            <option value="80.1764321822379">Meenambakkam</option>
+            <option value="80.19414428408878">Nanganallur Road</option>
+            <option value="80.23657420817336">Nandanam</option>
+            <option value="80.2508465114512">Nehru Park</option>
+            <option value="80.29300863991202">New Washermenpet</option>
+            <option value="80.23236813962326">Pachaiyappas College</option>
+            <option value="80.22810799573105">Saidapet</option>
+            <option value="80.2251505887002">Shenoy Nagar</option>
+            <option value="80.19876702243529">St. Thomas Mount</option>
+            <option value="80.2467689129253">Teynampet</option>
+            <option value="80.20162763962334">Thirumangalam</option>
+            <option value="80.30547851292756">Thiruvotriyur</option>
+            <option value="80.3023912425676">Thiruvotriyur Theredi</option>
+            <option value="80.25849593806002">Thousand Lights</option>
+            <option value="80.28511683598573">Thyagaraya College</option>
+            <option value="80.29651692827026">TollGate</option>
+            <option value="80.28825263991189">Tondiarpet</option>
+            <option value="80.21217958379869">Vadapalani</option>
+            <option value="80.28116682543758">Washermenpet</option>
+            <option value="80.30744509758446">Wimco Nagar</option>
+            <option value="80.30731754786132">Wimco Nagar Depot</option>
+        </datalist>
+    </main>
+    <script>
+        // Show loader for 2 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').style.display = 'none';  // Hide loader
+                document.querySelectorAll('.main-content').forEach(function(el) {
+                    el.style.display = 'block';  // Show main content
+                });
+            }, 2000);  // 2 seconds
+        };
+    </script>
+    <script src="/static/js/openNav.js"></script>
+</body>
+</html>

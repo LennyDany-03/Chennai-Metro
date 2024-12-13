@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Metro Map</title>
+    <link rel="stylesheet" href="/static/css/Metro_Map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/static/videos/Nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content" style="display:none;"></div>
+
+    <header>
+        <nav class="navbar">
+            <ul class="logo">
+                <li><a href="/">M e t r o</a></li>
+            </ul>
+            <ul class="option">
+                <li><a href="/" class="underline">Home</a></li>
+                <li><a href="/Service" class="underline">Services</a></li>
+                <li><a href="/Contact" class="underline">Contact</a></li>
+                <li><a href="/About" class="underline">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="TypeAnimation">Map</h1>
+        </div><br><br>
+        <div class="Map">
+            <div class="Green_Line">
+                <div id="Green_Map" ></div><br><br>
+                <h1>Green Line Metro</h1>
+                <a href="/GreenMap"><button class="Buttons">Expand</button></a>
+            </div>
+            <div class="Blue_Line">
+                <div id="Blue_Map"></div><br><br>
+                <h1>Blue Line Metro</h1>
+                <a href="/BlueMap"><button class="Buttons">Expand</button></a>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Show loader for 2 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').style.display = 'none';  // Hide loader
+                document.querySelector('.main-content').style.display = 'block';     // Show main content
+            }, 2000);  // 2 seconds
+        };
+    </script>
+    <script src="/static/js/Map.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fare Calculator</title>
+    <link rel="stylesheet" href="/static/css/farecalculator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/static/videos/Nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="display:none;">
+        <header>
+            <nav class="navbar">
+                <ul class="logo">
+                    <li><a href="/">M e t r o</a></li>
+                </ul>
+                <ul class="option">
+                    <li><a href="/" class="underline">Home</a></li>
+                    <li><a href="/Service" class="underline">Services</a></li>
+                    <li><a href="/Contact" class="underline">Contact</a></li>
+                    <li><a href="/About" class="underline">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <h1 class="TypeAnimation">Fare Calculator</h1>
+            </div>
+            <!-- Flash Messages Section -->
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="alert-container">
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>          
+            <!-- Form -->
+            <form action="/farecalculator" method="post">
+                <div class="sub_container">
+                    <h1>Calculator</h1>
+
+                    <!-- Input field for the current station -->
+                    <div class="input_Bar">
+                        <label for="from_station">Which station are you currently at?</label><br>
+                        <input type="text" placeholder="From-Station" name="from_station" id="from_station" list="stations" required>
+                    </div>
+
+                    <!-- Input field for the destination station -->
+                    <div class="input_Bar">
+                        <label for="to_station">Which station have you decided to go to?</label><br>
+                        <input type="text" placeholder="To-Station" name="to_station" id="to_station" list="stations" required>
+                    </div>
+
+                    <!-- Datalist for station suggestions -->
+                    <datalist id="stations">
+                        <option value="AG-DMS">AG-DMS</option>
+                        <option value="Airport">Airport</option>
+                        <option value="Alandur Metro">Alandur</option>
+                        <option value="Anna Nagar East">Anna Nagar East</option>
+                        <option value="Anna Nagar Tower">Anna Nagar Tower</option>
+                        <option value="Arumbakkam">Arumbakkam</option>
+                        <option value="Ashok Nagar">Ashok Nagar</option>
+                        <option value="Central Metro">Central Metro</option>
+                        <option value="CMBT Metro">CMBT Metro</option>
+                        <option value="Egmore">Egmore</option>
+                        <option value="Ekkattuthangal">Ekkattuthangal</option>
+                        <option value="Government Estate">Government Estate</option>
+                        <option value="Guindy">Guindy</option>
+                        <option value="High Court">High Court</option>
+                        <option value="Kaladipet">Kaladipet</option>
+                        <option value="Kilpauk">Kilpauk</option>
+                        <option value="Koyambedu">Koyambedu</option>
+                        <option value="LIC">LIC</option>
+                        <option value="Little Mount">Little Mount</option>
+                        <option value="Mannadi">Mannadi</option>
+                        <option value="Meenambakkam">Meenambakkam</option>
+                        <option value="Nanganallur Road">Nanganallur Road</option>
+                        <option value="Nandanam">Nandanam</option>
+                        <option value="Nehru Park">Nehru Park</option>
+                        <option value="New Washermen pet">New Washermenpet</option>
+                        <option value="Pachaiyappas College">Pachaiyappas College</option>
+                        <option value="Saidapet">Saidapet</option>
+                        <option value="Shenoy Nagar">Shenoy Nagar</option>
+                        <option value="St. Thomas Mount">St. Thomas Mount</option>
+                        <option value="Teynampet">Teynampet</option>
+                        <option value="Thirumangalam">Thirumangalam</option>
+                        <option value="Thiruvotriyur">Thiruvotriyur</option>
+                        <option value="Thiruvotriyur Theredi">Thiruvotriyur Theredi</option>
+                        <option value="Thousand Lights">Thousand Lights</option>
+                        <option value="Thyagaraya College">Thyagaraya College</option>
+                        <option value="Toll Gate">TollGate</option>
+                        <option value="Tondiarpet">Tondiarpet</option>
+                        <option value="Vadapalani">Vadapalani</option>
+                        <option value="Washermenpet">Washermenpet</option>
+                        <option value="WimcoNagar">Wimco Nagar</option>
+                        <option value="WimcoNagar Depot">Wimco Nagar Depot</option>
+                    </datalist>
+                    <div class="Button">
+                        <button type="submit">Hit This</button>
+                        <a href="https://tickets.chennaimetrorail.org/onlineticket"><button type="button">Book Ticket</button></a>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        // Show loader for 2 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').style.display = 'none';  // Hide loader
+                document.querySelector('.main-content').style.display = 'block';     // Show main content
+            }, 2000);  // 2 seconds
+        };
+    </script>
+</body>
+</html>

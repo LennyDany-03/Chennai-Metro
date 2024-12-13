@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Metro Contact</title>
+    <link rel="stylesheet" href="/static/css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/static/videos/Nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+        <!-- Main Content -->
+        <div class="main-content" style="display:none;">
+    <header>
+        <nav class="navbar">
+            <ul class="logo">
+                <li><a href="/">METRO</a></li>
+            </ul>
+            <ul class="option">
+                <li><a href="/" class="underline">Home</a></li>
+                <li><a href="/Service" class="underline">Services</a></li>
+                <li><a href="/Contact" class="underline">Contact</a></li>
+                <li><a href="/About" class="underline">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="TypeAnimation">Contact</h1>
+        <!-- Display flash messages -->
+        <div class="alert-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <form action="/Contact" method="post">
+            <div class="MainContainer">
+                <div class="input-Bar">
+                    <label for="name">Name</label><br>
+                    <input type="text" name="name" placeholder="Name">
+                </div>
+                <div class="input-Bar">
+                    <label for="phone">Phone Number</label><br>
+                    <input type="number" name="phone" placeholder="Phone Number">
+                </div>
+                <div class="input-Bar">
+                    <label for="email">Email-Id</label><br>
+                    <input type="email" name="email" placeholder="Email - Id">
+                </div>
+                <button class="Button">Hit This</button>
+            </div>
+        </form>
+    </main>
+    </main>
+    <script>
+        // Show loader for 2 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').style.display = 'none';  // Hide loader
+                document.querySelector('.main-content').style.display = 'block';     // Show main content
+            }, 2000);  // 2 seconds
+        };
+    </script>
+</body>
+</html>

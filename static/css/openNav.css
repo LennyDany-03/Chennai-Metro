@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.Box-Map {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row_column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 500px;
+    width: 750px;
+    border-radius: 15px;
+    transition: 0.25s;
+    margin: 5px;
+}
+
+.sub_container {
+    height: 300px;
+    width: 500px;
+    color: aqua;
+    border: 2px solid aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+    backdrop-filter: blur(10px);
+}
+
+.From_To {
+    margin: 25px;
+}
+
+label {
+    color: aqua;
+    margin: 20px;
+}
+
+input {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.25s;
+}
+
+button:hover {
+    background-color: #101720;
+    color: aqua;
+}
+.navbar{
+    margin: 1%;
+}
+.navbar .option{
+    display: flex;
+    justify-content: right;
+}
+.navbar .option li{
+    list-style-type: none;
+}
+.underline{
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    margin: 20px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-out;
+}
+
+.underline:hover::after {
+    width: 100%;
+}
+
+.navbar .logo{
+    display: flex;
+    justify-content: left;
+}
+.navbar .logo li{
+    list-style-type: none;
+}
+.navbar .logo li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    font-size: 30px;
+}
+main {
+    position: relative;
+    z-index: 1; /* Ensure content is above the video */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Make sure it occupies full height */
+}
+.video-background {
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Set to viewport width */
+    height: 100vh; /* Set to viewport height */
+    overflow: hidden;
+    z-index: -1; /* Ensure the video is behind other content */
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%; /* Minimum width to cover the viewport */
+    min-height: 100%; /* Minimum height to cover the viewport */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transform: translate(-50%, -50%); /* Center the video */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+}
+/* Loader Container */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* Loader Styling */
+.loader {
+    width: 85px;
+    height: 50px;
+    --g1: conic-gradient(from 90deg at left 3px top 3px, #0000 90deg, #fff 0);
+    --g2: conic-gradient(from -90deg at bottom 3px right 3px, #0000 90deg, #fff 0);
+    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
+    background-position: left, center, right;
+    background-repeat: no-repeat;
+    animation: l10 1s infinite alternate;
+}
+
+@keyframes l10 {
+    0%, 2% {background-size: 25px 50%, 25px 50%, 25px 50%;}
+    20% {background-size: 25px 25%, 25px 50%, 25px 50%;}
+    40% {background-size: 25px 100%, 25px 25%, 25px 50%;}
+    60% {background-size: 25px 50%, 25px 100%, 25px 25%;}
+    80% {background-size: 25px 50%, 25px 50%, 25px 100%;}
+    98%, 100% {background-size: 25px 50%, 25px 50%, 25px 50%;}
+}
+main{
+    text-align: center;
+}
+.TypeAnimation {
+    color: white;
+    font-family: 'Courier', monospace;
+    font-size: 40px;
+    display: inline-block;
+    border-right: 2px solid rgb(72, 59, 59);
+    white-space: nowrap;
+    overflow: hidden;  /* Ensures the hidden part of the text remains invisible */
+    width: 0;          /* Initially, the text will have 0 width */
+    animation: typing 0.5s steps(10) 1s forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 18%; }
+}
+
+@keyframes blink {
+    50% { border-right-color: transparent; }
+}

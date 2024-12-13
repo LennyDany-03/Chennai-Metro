@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Metro Service</title>
+    <link rel="stylesheet" href="/static/css/service.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/static/videos/Nature.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="display:none;">
+    <header>
+        <nav class="navbar">
+            <ul class="logo">
+                <li><a href="/">M e t r o</a></li>
+            </ul>
+            <ul class="option">
+                <li><a href="/" class="underline">Home</a></li>
+                <li><a href="/Service" class="underline">Services</a></li>
+                <li><a href="/Contact" class="underline">Contact</a></li>
+                <li><a href="/About" class="underline">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1 class="TypeAnimation" style="color: white;">Services</h1>
+        </div>
+        <div class="subcontainer">
+            <p>Chennai Metro Phase 1 is a major infrastructure project aimed at improving public transportation in the city. Spanning 45 kilometers, it connects vital parts of Chennai with modern, efficient metro services. Phase 1 includes two primary corridors: the Blue Line and the Green Line. The Blue Line runs from Washermanpet to the Chennai International Airport, covering key areas like Egmore, Anna Salai, and Saidapet, while the Green Line connects Chennai Central to St. Thomas Mount, passing through important hubs such as Vadapalani and Koyambedu. <br>
+
+                With over 32 stations, the project is designed to reduce traffic congestion, improve air quality, and offer faster commute times for the city’s growing population. The system features modern amenities such as air-conditioned coaches, electronic ticketing, and real-time tracking of trains. Chennai Metro Phase 1 also integrates with other modes of transport, including buses and suburban trains, creating a seamless transit experience for commuters. <br>
+                
+                The project has not only enhanced connectivity but also contributed to the city's urban development, encouraging businesses and residential growth around the metro stations.</p> <br>
+        </div>
+        <div class="MapContainer">
+            <div class="MetroMap">
+                <h1>Metro Map</h1>
+                <p>
+                    The Metro Map visually represents train routes, stations, and connections, facilitating easy navigation for commuters. Its clear layout aids in planning journeys and ensures efficient travel across the metro system.
+                </p>
+                <a href="/MetroMap"><button class="Buttons">Explore More</button></a>
+            </div>
+            <div class="MetroMap">
+                <h1>Live Train Tracker</h1>
+                <p>
+                    The Live Train Tracker for metro trains offers real-time updates on train locations, delays, and arrivals. It enhances commuter experience by providing accurate information and improving transit efficiency and reliability.
+                </p>
+                <a href="/Live_Train_Tracker"><button class="Buttons">Discover Now</button></a>
+            </div>
+            <div class="MetroMap">
+                <h1>OpenNav Map</h1>
+                <p>
+                    OpenNav Map is an innovative mapping platform that provides users with real-time navigation, detailed geographic information, and customizable features, making it ideal for exploring urban environments and planning routes efficiently.
+                </p>
+                <a href="/openNav"><button class="Buttons">Select Me</button></a>
+            </div>
+            <div class="MetroMap">
+                <h1>Fare Calculator</h1>
+                <p>The Fare Calculator is a user-friendly tool that helps commuters estimate travel costs based on distance, route, and transportation mode, ensuring informed budgeting and efficient planning for their journeys.</p>
+                <a href="/farecalculator"><button class="Buttons">Learn More</button></a>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Show loader for 2 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').style.display = 'none';  // Hide loader
+                document.querySelector('.main-content').style.display = 'block';     // Show main content
+            }, 2000);  // 2 seconds
+        };
+    </script>
+</body>
+</html>
